@@ -10,8 +10,6 @@ class Solution
 private:
 	void backtracking(vector<string> &ans, string s, int n, int open, int close)
 	{
-		vector<string> answer;
-
 		if (open == n && close == n)
 		{
 			ans.push_back(s);
@@ -19,20 +17,17 @@ private:
 		}
 		if (open < n)
 		{
-			backtracking(ans, s.append("("), n, open + 1, close);
-			// s.pop_back();
+			backtracking(ans, s + "(", n, open + 1, close);
 		}
 		if (close < open)
-		{
-			backtracking(ans, s.append(")"), n, open, close + 1);
-			// s.pop_back();
+		{	
+			backtracking(ans, s + ")", n, open, close + 1);
 		}
 	}
 
 public:
 	vector<string> generateParenthesis(int n)
 	{
-
 		vector<string> answer;
 		backtracking(answer, "", n, 0, 0);
 		return answer;
