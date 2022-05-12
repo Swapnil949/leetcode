@@ -9,7 +9,7 @@ using std::vector;
 class Solution
 {
 public:
-    vector<vector<int>> combinationSum(vector<int> &candidates, int target)
+    vector<vector<int>> combinationSum2(vector<int> &candidates, int target)
     {
         // sort the candidates
         std::sort(candidates.begin(), candidates.end());
@@ -46,13 +46,13 @@ private:
 
 int main()
 {
-    vector<int> candidates = {2, 3, 6, 7};
-    int target = 7;
+    vector<int> candidates = {10, 1, 2, 7, 6, 1, 5};
+    int target = 8;
 
     // Start measuring time
     auto begin = std::chrono::high_resolution_clock::now();
     Solution solve;
-    vector<vector<int>> answer = solve.combinationSum(candidates, target);
+    vector<vector<int>> answer = solve.combinationSum2(candidates, target);
 
     // Stop measuring time and calculate the elapsed time
     auto end = std::chrono::high_resolution_clock::now();
