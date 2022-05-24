@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <vector>
+#include <algorithm>
 #include <bits/stdc++.h>
 
 using std::string;
@@ -13,6 +14,8 @@ public:
     {
         // sort the candidates
         std::sort(candidates.begin(), candidates.end());
+        vector<bool> candidatesUsed;
+      //  std::unique(candidates.begin(), candidates.end());
 
         vector<vector<int>> answer;
         vector<int> current;
@@ -38,7 +41,9 @@ private:
         for(int i = start; i < candidates.size(); i++)
         {
             current.push_back(candidates[i]);
-            backtrack(answer,current,candidates, remain - candidates[i], i);
+
+            int temp = current.back();
+            backtrack(answer,current,candidates, remain - candidates[i], i+1);
             current.pop_back();
         }
     }
