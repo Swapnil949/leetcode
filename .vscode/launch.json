@@ -25,7 +25,10 @@
           }
         ],
         "preLaunchTask": "C/C++: g++.exe build active file",
-        "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe"
+        "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
+        "miDebuggerArgs": "-quiet",
+        "showDisplayString": true
+
       },
         {
           "name": "(linux) g++ build and debug active file",
