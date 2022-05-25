@@ -15,11 +15,11 @@ public:
         // sort the candidates
         std::sort(candidates.begin(), candidates.end());
         vector<bool> candidatesUsed;
-      //  std::unique(candidates.begin(), candidates.end());
+        //  std::unique(candidates.begin(), candidates.end());
 
         vector<vector<int>> answer;
         vector<int> current;
-        
+
         backtrack(answer, current, candidates, target, 0);
 
         return answer;
@@ -29,21 +29,22 @@ private:
     void backtrack(vector<vector<int>> &answer, vector<int> &current,
                    vector<int> &candidates, int remain, int start)
     {
-        if(remain < 0)
+        if (remain < 0)
             return;
-        
+
         if (remain == 0)
         {
             answer.push_back(current);
             return;
         }
-        
-        for(int i = start; i < candidates.size(); i++)
-        {
-            current.push_back(candidates[i]);
 
-            int temp = current.back();
-            backtrack(answer,current,candidates, remain - candidates[i], i+1);
+        for (int i = start; i < candidates.size(); i++)
+        {
+            if (i > start && candidates[i] == candidates[i - 1])
+                continue;
+
+            current.push_back(candidates[i]);
+            backtrack(answer, current, candidates, remain - candidates[i], i + 1);
             current.pop_back();
         }
     }
@@ -53,6 +54,8 @@ int main()
 {
     vector<int> candidates = {10, 1, 2, 7, 6, 1, 5};
     int target = 8;
+    
+    
 
     // Start measuring time
     auto begin = std::chrono::high_resolution_clock::now();
