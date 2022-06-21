@@ -5,6 +5,7 @@ Given a m x n grid filled with non-negative numbers, find a path from top left t
 **Note**: You can only move either down or right at any point in time.
 
 ## Example 1
+
     1 3 1
     1 5 1
     4 2 1
@@ -15,6 +16,7 @@ Given a m x n grid filled with non-negative numbers, find a path from top left t
         Because the path 1 → 3 → 1 → 1 → 1 minimizes the sum.
 
 ## Example 2
+
     1 2 3 
     4 5 6
     Input: grid = [[1,2,3],[4,5,6]]
